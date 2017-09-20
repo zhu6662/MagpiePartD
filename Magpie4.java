@@ -101,7 +101,11 @@ public class Magpie4
         System.out.println(psnI + " " + psnYou);
         
         String restOfStatement = statement.substring(psnI + 1, psnYou).trim();
-        return "Why do you " + restOfStatement + " me?";
+        String end = statement.substring(psnYou + 3).trim();
+        if(end.length() > 0)
+            return "Why do you " + restOfStatement + " me " + end + "?";
+        else 
+            return "Why do you " + restOfStatement + " me?";
     }
     
     private String transformIWantStatement(String statement){
